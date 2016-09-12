@@ -1,21 +1,35 @@
 #include "fractol.h"
 
-int		ft_check_error(int argc, char **argv)
+static	void	ft_bol_set(bolerr_t *bol)
 {
-	int bol = FALSE;
+	bol->mand = 0;
+	bol->jul = 0;
+	bol->bur = 0;
+	bol->other = 0;
+	bol->ret = 0;
+}
+
+int				ft_check_error(int argc, char **argv)
+{
+	bolerr_t		*bol;
 	unsigned int	i;
 
 	i = 0;
+	bol = (bolerr_t *)malloc(sizeof(bolerr_t));
+	ft_bol_set(bol);
 	if (argc >= 2)
 	{
 		while (argv[i])
 		{
-			if ((ft_strcmp(argv[i], "mandelbroot") != 0) && 
-				(ft_strcmp(argv[i], "julia") != 0) && 
-				(ft_strcmp(argv[i], "burningship") != 0))
-				bol = TRUE;
+			ft_check_bol(argv[i], bol);
+			if (bol->ret == 1)
+			{
+				free(bol);
+				return (FALSE);
+			}
 			i++;
 		}
 	}
-	return (bol);
+	free(bol);
+	return (TRUE);
 }

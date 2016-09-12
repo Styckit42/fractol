@@ -2,24 +2,24 @@
 
 void		ft_init(char **argv)
 {
-	mlx_t			*mlx_start;
+	mlx_t			*mlx;
 	unsigned int	i;
 
 	i = 0;
-	mlx_start = (mlx_t *)malloc(sizeof(mlx_t));
-	mlx_start->mlx_ptr = mlx_init();
+	mlx = (mlx_t *)malloc(sizeof(mlx_t));
+	mlx->mlx_ptr = mlx_init();
+	init_struct_limit(mlx);
+	init_struct_bonus(mlx);
+	init_struct_point(mlx);
 	while (argv[i])
 	{
-		if(ft_strcmp(argv[i], "mandelbroot") == 0)
-			ft_mandel_hub(mlx_start);
+		if(ft_strcmp(argv[i], "mandelbrot") == 0)
+			ft_mandel_hub(mlx);
 		else if(ft_strcmp(argv[i], "julia") == 0)
-			ft_julia_hub(mlx_start);
-		else if(ft_strcmp(argv[i], "burningship") == 0)
-			ft_burning_hub(mlx_start);
-		//else if(ft_strcmp(argv[i], "other") == 0)
-			// ft_other_hub(mlx_start);
-
+			ft_julia_hub(mlx);
+		else if(ft_strcmp(argv[i], "burning") == 0)
+			ft_burning_hub(mlx);
 		i++;
 	}
-	mlx_loop(mlx_start->mlx_ptr);
+	mlx_loop(mlx->mlx_ptr);
 }

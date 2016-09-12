@@ -19,13 +19,15 @@
 
 typedef struct 		s_list
 {
-void 				*content;
-size_t 				content_size;
-struct s_list 		*next;
+	void 				*content;
+	size_t 				content_size;
+	struct s_list 		*next;
 } 					t_list;
 
+double	ft_absolute_nb(double nb);
 int		ft_atoi(char const *nptr);
 void	ft_bzero(void *s, size_t n);
+char	**ft_cpy_tab(char **tab);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
@@ -33,6 +35,7 @@ int		ft_isblank(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 char	*ft_itoa(int n);
+int		ft_len_tab(char **tab);
 void	ft_lstadd(t_list **alst, t_list *new);
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
@@ -82,8 +85,11 @@ char	*ft_strrchr(char const *s, int c);
 char	**ft_strsplit(char const *s, char c);
 char	*ft_strstr(char const *s1, char const *s2);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
+char	*ft_strtolower(char *str);
+char	*ft_strtoupper(char *str);
 char	*ft_strtrim(char const *s);
 t_list	*ft_tab_to_list(char **env);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+char 	**realloc_tab(char **tab, char *str, int cpt);
 #endif

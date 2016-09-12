@@ -12,14 +12,17 @@
 
 NAME = libft.a
 
-SRCS = ft_atoi.c \
+SRCS = 	ft_absolute_nb.c \
+		ft_atoi.c \
 		ft_bzero.c \
+		ft_cpy_tab.c \
 		ft_isalnum.c \
 		ft_isalpha.c \
 		ft_isascii.c \
 		ft_isdigit.c \
 		ft_isprint.c \
 		ft_itoa.c \
+		ft_len_tab.c \
 		ft_lstadd.c \
 		ft_lstdel.c \
 		ft_lstdelone.c \
@@ -69,10 +72,13 @@ SRCS = ft_atoi.c \
 		ft_strsplit.c \
 		ft_strstr.c \
 		ft_strsub.c \
+		ft_strtolower.c \
+		ft_strtoupper.c \
 		ft_strtrim.c \
 		ft_tab_to_list.c \
 		ft_tolower.c \
 		ft_toupper.c \
+		realloc_tab.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
